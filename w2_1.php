@@ -1,6 +1,6 @@
-//切換頁面
-<div class="">
-    <?php
+//切版 (影片至11分)
+//切換頁面    
+<?php
     $do = $_GET['do'] ?? 'home';
     $file = 'front/' . $do . ".php";
     if (file_exists($file)) {
@@ -9,6 +9,18 @@
         include "front/home.php";
     }    ?>
 </div>
+
+//瀏覽人次相關
+<?= date("m月 d號 l"); ?> |
+
+//建資料表
+//寫base檔 ***all函式case 2 記得加 ." ".空格***
+//function to($url){ header("location:".$url);} 注意 $url放括號裡面
+
+今日瀏覽: <?= $View->find(['date' => date("Y-m-d")])['total']; ?> |
+累積瀏覽: <?= $View->math('sum', 'total'); ?>
+<div class="">
+
 
 // 今日的瀏灠人數紀錄
 有->瀏灠人次加1
@@ -25,11 +37,6 @@ if (!isset($_SESSION['view'])) {
         $_SESSION['view'] = 1;
     }
 } ?>
-
-//瀏覽人次相關
-<?= date("m月 d號 l"); ?> |
-今日瀏覽: <?= $View->find(['date' => date("Y-m-d")])['total']; ?> |
-累積瀏覽: <?= $View->math('sum', 'total'); ?>
 
 //DW 頁簽
 開啟 home.php -> 插入 -> spry -> spry 標籤面板 ->分割
