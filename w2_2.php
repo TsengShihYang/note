@@ -1,4 +1,4 @@
-//至 index 修改登入登出顯示狀態 (要用5個php來包住)
+//至 index 修改登入登出顯示狀態 (要用5個php來包住),寫在a標籤之前,
 <?php
 if (isset($_SESSION['login'])) {
 
@@ -81,3 +81,4 @@ $news=$News->find($id);
 
 //new line to br
 echo nl2br($news['text']); ?>
+
