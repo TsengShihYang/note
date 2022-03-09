@@ -11,7 +11,7 @@ if(file_exists($file)){
     include $file;
 }else{ include "./front/home.php";}
 
-//移動後台中間部分後(70-93行) 置於 back 改名 title 寫後台include檔
+//移動後台中間部分後(77-92行) 置於 back 改名 title 寫後台include檔
 
 $do=$_GET['do']??'title';
 $file="./back/".$do.".php";
@@ -42,3 +42,5 @@ to("../back.php?do=total"); //注意是路徑兩點
 <?php //api
 $Total->save(['id'=>1,'total'=>$_POST['total']]);
 to("../back.php?do=total");
+
+//建立後台 title.php 為基礎 之後再複製至其他
