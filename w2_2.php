@@ -125,4 +125,24 @@ $(".switch").on("click",function(){
     $(this).parent().find(".short,.full").toggle()
 })
 </script>
-
+// news 第三行 td 放 按讚顯示
+<?php
+if(isset($_SESSION['login'])){
+    echo "<a class='g' data-type='2'>讚</a>";
+}
+?>
+//script 註冊一個按讚function 
+<script>
+$(".g").on("click",function(){
+        let type=$(this).data('type')
+        switch(type){
+            case 1:
+                $(this).text("讚")
+                $(this).data('type',2)
+                break;
+                case 2:
+                $(this).text("收回讚")
+                $(this).data('type',1)
+                break;
+        }
+})</script>
